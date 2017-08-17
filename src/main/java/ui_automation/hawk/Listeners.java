@@ -1,11 +1,12 @@
-package ui_automation_hawk;
+package ui_automation.hawk;
 
 import java.io.IOException;
 
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
-import ui_automation_hawk.TestBase;
+
+import ui_automation.hawk.TestBase;
 
 public class Listeners implements ITestListener {
 
