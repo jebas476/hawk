@@ -1,4 +1,4 @@
-package ui_automation_hawk;
+package ui_automation.hawk;
 
 import java.util.Calendar;
 import java.util.Date;
