@@ -2,9 +2,37 @@ package ui_automation.hawk;
 
 
 import org.openqa.selenium.WebDriver;
-
+import org.sikuli.script.Pattern;
+import org.sikuli.script.FindFailed;
+import org.sikuli.script.Screen;
 public class PageObjectBase {
 	WebDriver driver;
+	//////////////////////////////////////////////
+	// clickImage
+	//  Clicks the image input present in the
+	//	screen via SikuliX api.
+	///////////////////////////////////////////////
+	public void clickImage(String inputPath) {
+		Pattern imgPath = new Pattern(inputPath);
+		Screen currentScreen = new Screen();
+		try {
+			currentScreen.click(imgPath);
+		} catch (FindFailed e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	/////////////////////////////////////////////////
+	// isImagePresent
+	//	Checks if the given image is present in the
+	//	present in the current screen via sikulix
+	//	api.
+	/////////////////////////////////////////////////
+	public boolean isImagePresent(String inputPath){
+		Pattern imgPath = new Pattern(inputPath);
+		Screen currentScreen = new Screen();
+		return currentScreen.exists(imgPath) != null;	
+	}
 
 	// public WebElement FindElementByCSS(String name, String type) {
 	//
