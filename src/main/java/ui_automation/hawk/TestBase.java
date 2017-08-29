@@ -28,7 +28,15 @@ public class TestBase {
 		prop.load(fis);
 		String browserName = prop.getProperty("browser");
 		System.out.println(browserName);
+		initializeBrowser(browserName);
+	}
 
+	public void initializeDriver(String browserName) throws IOException {
+		System.out.println(browserName);
+		initializeBrowser(browserName);
+	}
+
+	public void initializeBrowser(String browserName) {
 		if (browserName.equals("chrome")) {
 			ChromeDriverManager.getInstance().setup();
 			driver = new ChromeDriver();
@@ -43,9 +51,7 @@ public class TestBase {
 			driver = new InternetExplorerDriver();
 			// IE code
 		}
-
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-
 	}
 
 	public void navigate_to_url(String url) {
