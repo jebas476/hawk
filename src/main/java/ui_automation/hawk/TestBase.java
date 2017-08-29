@@ -14,6 +14,8 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 
+import io.github.bonigarcia.wdm.ChromeDriverManager;
+
 public class TestBase {
 	public static WebDriver driver;
 	public Properties prop;
@@ -27,9 +29,8 @@ public class TestBase {
 		String browserName = prop.getProperty("browser");
 		System.out.println(browserName);
 
-		if (browserName.equals("chrome")) {
-			
-			System.setProperty("webdriver.chrome.driver", "C://Ruby22-x64//bin//chromedriver.exe");
+		if (browserName.equals("chrome")) {		
+			ChromeDriverManager.getInstance().setup();
 			driver = new ChromeDriver();
 			// execute in chrome driver
 		} else if (browserName.equals("firefox")) {
@@ -40,7 +41,7 @@ public class TestBase {
 			System.setProperty("webdriver.ie.driver", "C://eclipse//iedriver.exe");
 			driver = new InternetExplorerDriver();
 			// IE code
-		}		
+		}				
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		return driver;
