@@ -18,7 +18,7 @@ public class TestBase {
 	public static WebDriver driver;
 	public Properties prop;
 
-	public WebDriver initializeDriver() throws IOException {
+	public void initializeDriver() throws IOException {
 
 		prop = new Properties();
 		FileInputStream fis = new FileInputStream("data.properties");
@@ -31,6 +31,7 @@ public class TestBase {
 			
 			System.setProperty("webdriver.chrome.driver", "C://Ruby22-x64//bin//chromedriver.exe");
 			driver = new ChromeDriver();
+			driver.manage().window().maximize();
 			// execute in chrome driver
 		} else if (browserName.equals("firefox")) {
 			System.setProperty("webdriver.gecko.driver", "C://eclipse//geckodriver.exe");
@@ -41,18 +42,19 @@ public class TestBase {
 			driver = new InternetExplorerDriver();
 			// IE code
 		}		
-		driver.manage().window().maximize();
+		
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-		return driver;
 
 	}
 
 	public void navigate_to_url(String url) {
+		System.out.println(url);
+		System.out.println(driver.toString());
 		driver.get(url);
 	}
 
 	public static void getScreenshot(String result) throws IOException {
 		File src = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-		FileUtils.copyFile(src, new File("C://test-screenshots//" + result + "screenshot.png"));
+		FileUtils.copyFile(src, new File(".//test-screenshots//" + result + "screenshot.png"));
 	}
 }

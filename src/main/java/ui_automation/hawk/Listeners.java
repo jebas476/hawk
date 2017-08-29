@@ -11,10 +11,12 @@ import ui_automation.hawk.TestBase;
 public class Listeners implements ITestListener {
 
 	public void onFinish(ITestContext result) {
+		System.out.println("Test completed");
 		// Take screenshot of the last state
 	}
 
 	public void onStart(ITestContext arg0) {
+		System.out.println("Test started");
 		// TODO Auto-generated method stub
 
 	}
@@ -35,17 +37,20 @@ public class Listeners implements ITestListener {
 	}
 
 	public void onTestSkipped(ITestResult arg0) {
+		System.out.println("Test skipped");
 		// TODO Auto-generated method stub
 
 	}
 
 	public void onTestStart(ITestResult arg0) {
+		System.out.println("Test skipped");
 		// TODO Auto-generated method stub
 
 	}
 
 	public void onTestSuccess(ITestResult arg0) {
 		// TODO Auto-generated method stub
+		System.out.println("Test successful");
 
 	}
 
