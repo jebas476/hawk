@@ -40,7 +40,7 @@ public class TestBase {
 		if (browserName.equals("chrome")) {
 			ChromeDriverManager.getInstance().setup();
 			driver = new ChromeDriver();
-			driver.manage().window().maximize();
+			// driver.manage().window().maximize();
 			// execute in chrome driver
 		} else if (browserName.equals("firefox")) {
 			System.setProperty("webdriver.gecko.driver", "C://eclipse//geckodriver.exe");
